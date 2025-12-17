@@ -1,6 +1,7 @@
 $(document).ready(function () {
   var truckId = window.TRUCK_ID;
   var lastLoadedCategory = "";
+  var allItems = [];
 
   if (!truckId) {
     if (typeof showNotification === "function") {
@@ -56,7 +57,8 @@ $(document).ready(function () {
       type: "GET",
       url: url,
       success: function (items) {
-        renderMenu(items || []);
+        allItems = items || [];
+        renderMenu(allItems);
       },
       error: function (err) {
         console.log(err);
@@ -162,6 +164,20 @@ $(document).ready(function () {
     var category = $(this).val() || "";
     lastLoadedCategory = category;
     loadMenu(category);
+  });
+
+  $("#menuSearch").on("input", function () {
+    var q = String($(this).val() || "").toLowerCase().trim();
+    if (!q) {
+      renderMenu(allItems);
+      return;
+    }
+    var filtered = allItems.filter(function (it) {
+      var name = String(it.name || it.itemName || "").toLowerCase();
+      var desc = String(it.description || "").toLowerCase();
+      return name.includes(q) || desc.includes(q);
+    });
+    renderMenu(filtered);
   });
 
   // initial load

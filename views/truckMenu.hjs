@@ -6,6 +6,7 @@
       <link rel='stylesheet' href='/styles/style.css' />
       <script src="/js/jquery-2.2.0.min.js" type="text/javascript"></script>
       <script src="/js/bootstrap.min.js" type="text/javascript"></script>
+      <script src="/src/ui.js" type="text/javascript"></script>
       <script>
         // Expose truckId to frontend JS
         window.TRUCK_ID = "{{truckId}}";
@@ -16,12 +17,13 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/dashboard">GIU Food Trucks</a>
+          <a class="navbar-brand" href="/customer/dashboard">GIU Food Trucks</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/trucks">Browse Trucks</a></li>
           <li><a href="/cart">My Cart</a></li>
           <li><a href="/myOrders">My Orders</a></li>
+          <li><a href="#" data-logout="1">Logout</a></li>
         </ul>
       </div>
     </nav>
@@ -38,7 +40,7 @@
 
       <div class="row" style="margin-bottom:15px;">
         <div class="col-sm-4">
-          <label for="categoryFilter">Filter by category:</label>
+          <label for="categoryFilter">Category</label>
           <select id="categoryFilter" class="form-control">
             <option value="">All categories</option>
             <option value="mains">Mains</option>
@@ -46,6 +48,13 @@
             <option value="drinks">Drinks</option>
             <option value="desserts">Desserts</option>
           </select>
+        </div>
+        <div class="col-sm-4">
+          <label for="menuSearch">Search</label>
+          <input id="menuSearch" class="form-control" placeholder="Search menu items...">
+        </div>
+        <div class="col-sm-4 text-right" style="margin-top:25px;">
+          <a class="btn btn-default" href="/cart">Go to Cart</a>
         </div>
       </div>
 

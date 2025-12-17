@@ -13,25 +13,31 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/dashboard">GIU Food Trucks - Vendor</a>
+          <a class="navbar-brand" href="/vendor/dashboard">GIU Food Trucks - Vendor</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/vendor/dashboard">Dashboard</a></li>
           <li><a href="/vendor/orders">Orders</a></li>
           <li class="active"><a href="/vendor/menu">Menu</a></li>
           <li><a href="/vendor/truck">Truck</a></li>
+          <li><a href="#" data-logout="1">Logout</a></li>
         </ul>
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container app-shell">
       <div class="page-header">
         <h2>Menu Management</h2>
         <p class="text-muted">View and manage all menu items for your truck.</p>
       </div>
 
-      <div class="text-right" style="margin-bottom:15px;">
-        <button id="add-item-btn" class="btn btn-primary">Add New Item</button>
+      <div class="row" style="margin-bottom:15px;">
+        <div class="col-sm-6">
+          <input id="vendorMenuSearch" class="form-control" placeholder="Search menu items...">
+        </div>
+        <div class="col-sm-6 text-right">
+          <button id="add-item-btn" class="btn btn-primary">Add New Item</button>
+        </div>
       </div>
 
       <table class="table table-striped table-bordered" id="vendor-menu-table">
@@ -101,5 +107,7 @@
     </div>
   </body>
 </html>
+
+
 
 

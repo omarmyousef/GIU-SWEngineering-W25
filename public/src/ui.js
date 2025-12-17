@@ -32,4 +32,46 @@ function showNotification(message, type) {
   }, 4000);
 }
 
+// Simple global loading overlay
+function showLoading(message) {
+  message = message || "Loading...";
+  var $overlay = $("#global-loading");
+  if (!$overlay.length) {
+    $overlay = $(
+      "<div id='global-loading'>" +
+        "<div class='loading-card'>" +
+          "<span class='loading-text'></span>" +
+        "</div>" +
+      "</div>"
+    );
+    $("body").append($overlay);
+  }
+  $overlay.find(".loading-text").text(message);
+  $overlay.show();
+}
+
+function hideLoading() {
+  $("#global-loading").hide();
+}
+
+// Logout helper: any <a data-logout="1">Logout</a>
+function bindLogoutLinks() {
+  $(document).on("click", "a[data-logout='1']", function (e) {
+    e.preventDefault();
+    showLoading("Signing out...");
+    $.ajax({
+      type: "POST",
+      url: "/api/v1/user/logout",
+      complete: function () {
+        hideLoading();
+        window.location.href = "/login";
+      },
+    });
+  });
+}
+
+$(document).ready(function () {
+  bindLogoutLinks();
+});
+
 

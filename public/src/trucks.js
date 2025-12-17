@@ -1,10 +1,17 @@
 $(document).ready(function () {
+  function normalize(str) {
+    return String(str || "").toLowerCase().trim();
+  }
+
+  var lastTrucks = [];
+
   function loadTrucks() {
     $.ajax({
       type: "GET",
       url: "/api/v1/trucks/view",
       success: function (trucks) {
-        renderTrucks(trucks || []);
+        lastTrucks = trucks || [];
+        renderTrucks(lastTrucks);
       },
       error: function (err) {
         console.log(err);
@@ -37,15 +44,15 @@ $(document).ready(function () {
 
       const busyLabel =
         orderStatus === "available"
-          ? '<span class="label label-success">Accepting Orders</span>'
-          : '<span class="label label-default">Not Accepting Orders</span>';
+          ? '<span class="app-pill success">Open</span>'
+          : '<span class="app-pill neutral">Closed</span>';
 
       const $col = $("<div class='col-sm-4'></div>");
-      const $panel = $("<div class='panel panel-default'></div>");
-      const $heading = $("<div class='panel-heading'></div>").append(
-        $("<h3 class='panel-title'></h3>").text(name)
+      const $panel = $("<div class='app-card' style='margin-bottom:18px;'></div>");
+      const $heading = $("<div class='app-card-header'></div>").append(
+        $("<h3 class='app-card-title' style='font-size:18px;'></h3>").text(name)
       );
-      const $body = $("<div class='panel-body'></div>");
+      const $body = $("<div class='app-card-body'></div>");
 
       $body.append(
         $("<p></p>").html(
@@ -62,13 +69,26 @@ $(document).ready(function () {
         window.location.href = "/trucks/" + encodeURIComponent(truckId) + "/menu";
       });
 
-      $body.append($("<p></p>").append($btn));
+      $body.append($("<div class='app-actions' style='justify-content:flex-start;'></div>").append($btn));
 
       $panel.append($heading).append($body);
       $col.append($panel);
       $list.append($col);
     });
   }
+
+  $("#truckSearch").on("input", function () {
+    var q = normalize($(this).val());
+    if (!q) {
+      renderTrucks(lastTrucks);
+      return;
+    }
+    var filtered = lastTrucks.filter(function (t) {
+      var name = t.truckName || t.name || "";
+      return normalize(name).includes(q);
+    });
+    renderTrucks(filtered);
+  });
 
   loadTrucks();
 });

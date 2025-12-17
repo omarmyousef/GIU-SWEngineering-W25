@@ -29,12 +29,14 @@ $(document).ready(function () {
   function renderOrders(orders) {
     const $noOrders = $("#no-orders");
     const $table = $("#orders-table");
+    const $wrap = $("#orders-wrap");
     const $tbody = $("#orders-body");
     $tbody.empty();
 
     if (!orders.length) {
       $noOrders.show();
       $table.hide();
+      if ($wrap && $wrap.length) $wrap.hide();
       return;
     }
 
@@ -47,6 +49,7 @@ $(document).ready(function () {
 
     $noOrders.hide();
     $table.show();
+    if ($wrap && $wrap.length) $wrap.show();
 
     orders.forEach(function (order) {
       const orderId = order.id || order.orderId;

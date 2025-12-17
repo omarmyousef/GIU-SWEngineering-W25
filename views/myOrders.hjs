@@ -12,17 +12,18 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/dashboard">GIU Food Trucks</a>
+          <a class="navbar-brand" href="/customer/dashboard">GIU Food Trucks</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/trucks">Browse Trucks</a></li>
           <li><a href="/cart">My Cart</a></li>
           <li class="active"><a href="/myOrders">My Orders</a></li>
+          <li><a href="#" data-logout="1">Logout</a></li>
         </ul>
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container app-shell">
       <div class="page-header">
         <h2>My Orders</h2>
       </div>
@@ -31,20 +32,22 @@
         You have no orders yet. <a href="/trucks" class="alert-link">Browse trucks to place your first order.</a>
       </div>
 
-      <table id="orders-table" class="table table-striped table-bordered" style="display:none;">
-        <thead>
-          <tr>
-            <th>Order ID</th>
-            <th>Truck</th>
-            <th>Status</th>
-            <th>Total Price</th>
-            <th>Date</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="orders-body">
-        </tbody>
-      </table>
+      <div class="app-table-wrap" id="orders-wrap" style="display:none;">
+        <table id="orders-table" class="table table-striped" style="display:none;">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Truck</th>
+              <th>Status</th>
+              <th>Total Price</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="orders-body">
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <!-- Order details modal -->

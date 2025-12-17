@@ -1,10 +1,17 @@
 $(document).ready(function () {
+  var allItems = [];
+
+  function normalize(str) {
+    return String(str || "").toLowerCase().trim();
+  }
+
   function loadMenu() {
     $.ajax({
       type: "GET",
       url: "/api/v1/menuItem/view",
       success: function (items) {
-        renderMenu(items || []);
+        allItems = items || [];
+        renderMenu(allItems);
       },
       error: function (err) {
         console.log(err);
@@ -213,7 +220,25 @@ $(document).ready(function () {
     saveItem();
   });
 
+  $("#vendorMenuSearch").on("input", function () {
+    var q = normalize($(this).val());
+    if (!q) {
+      renderMenu(allItems);
+      return;
+    }
+    var filtered = allItems.filter(function (it) {
+      return (
+        normalize(it.name).includes(q) ||
+        normalize(it.description).includes(q) ||
+        normalize(it.category).includes(q)
+      );
+    });
+    renderMenu(filtered);
+  });
+
   loadMenu();
 });
+
+
 
 

@@ -13,20 +13,29 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/dashboard">GIU Food Trucks</a>
+          <a class="navbar-brand" href="/customer/dashboard">GIU Food Trucks</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a href="/trucks">Browse Trucks</a></li>
           <li><a href="/cart">My Cart</a></li>
           <li><a href="/myOrders">My Orders</a></li>
+          <li><a href="#" data-logout="1">Logout</a></li>
         </ul>
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container app-shell">
       <div class="page-header">
         <h2>Browse Food Trucks</h2>
-        <p>Choose a truck to view its menu and place an order.</p>
+        <p class="text-muted">Choose a truck to view its menu and place an order.</p>
+      </div>
+
+      <div class="row" style="margin-bottom: 12px;">
+        <div class="col-sm-6">
+          <div class="form-group" style="margin-bottom:0;">
+            <input id="truckSearch" type="text" class="form-control" placeholder="Search trucks by name...">
+          </div>
+        </div>
       </div>
 
       <div id="no-trucks" class="alert alert-info" style="display:none;">

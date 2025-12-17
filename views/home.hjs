@@ -14,35 +14,100 @@
           <a class="navbar-brand" href="/">GIU Food Trucks</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/login">Login</a></li>
-          <li><a href="/register">Register</a></li>
+          <li><a class="app-link-muted" href="/login">Login</a></li>
+          <li><a class="app-link-muted" href="/register">Register</a></li>
         </ul>
       </div>
     </nav>
 
-    <div class="container" style="margin-top:30px;">
-      <div class="jumbotron">
-        <h1>GIU Food Trucks</h1>
-        <p>An on-campus food-truck ordering system. Customers can browse trucks, add items to cart, and place scheduled pickup orders. Vendors can manage their truck, menu, and incoming orders.</p>
-        <p>
-          <a class="btn btn-primary btn-lg" href="/login">Sign in</a>
-          <a class="btn btn-default btn-lg" href="/register">Create account</a>
-        </p>
+    <div class="container app-shell" style="margin-top:24px;">
+      <div class="app-hero">
+        <div class="row">
+          <div class="col-md-8">
+            <h1>GIU Food Trucks</h1>
+            <p>
+              An on-campus food-truck ordering system.
+              Customers can browse trucks, add items to cart, and schedule pickup.
+              Vendors can manage their truck, menu, and incoming orders.
+            </p>
+            <div class="app-actions" style="justify-content:flex-start; margin-top:14px;">
+              <a class="btn btn-primary btn-lg" href="/login">Sign in</a>
+              <a class="btn btn-default btn-lg" href="/register">Create account</a>
+            </div>
+            <div class="app-footer-note">
+              Tip: vendors and customers use the same login — the dashboard is role-based.
+            </div>
+          </div>
+          <div class="col-md-4" style="margin-top:10px;">
+            <div class="app-card" style="background: rgba(255,255,255,0.92);">
+              <div class="app-card-body">
+                <div class="app-kpi" style="margin-bottom:10px;">
+                  <div class="kpi-label">Fast ordering</div>
+                  <div class="kpi-value">15m+</div>
+                </div>
+                <div class="app-kpi" style="margin-bottom:10px;">
+                  <div class="kpi-label">Live status</div>
+                  <div class="kpi-value">Ready</div>
+                </div>
+                <div class="app-kpi">
+                  <div class="kpi-label">Single truck cart</div>
+                  <div class="kpi-value">✓</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Developed by:</h3>
+      <div style="height:18px;"></div>
+
+      <div class="app-card">
+        <div class="app-card-header">
+          <h3 class="app-card-title">Developed by</h3>
         </div>
-        <div class="panel-body">
-          <ul class="list-group">
-            <li class="list-group-item"><strong>Omar Mohammed Youssef</strong> — 17006288 — T17</li>
-            <li class="list-group-item"><strong>Mohammed Haitham Awad</strong> — 17003920 — T17</li>
-            <li class="list-group-item"><strong>Adham Sherif</strong> — 17001397 — T14</li>
-            <li class="list-group-item"><strong>Ahmed Ibrahim</strong> — 13007292 — T5</li>
-            <li class="list-group-item"><strong>Sobhy wael</strong> — 17001974 — T15</li>
-            <li class="list-group-item"><strong>Mahmoud Ehab</strong> — 17003955 — T17</li>
-          </ul>
+        <div class="app-card-body">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="app-kpi" style="margin-bottom:10px;">
+                <div>
+                  <div style="font-weight:900;">Omar Mohammed Youssef</div>
+                  <div class="app-muted">17006288 — T17</div>
+                </div>
+              </div>
+              <div class="app-kpi" style="margin-bottom:10px;">
+                <div>
+                  <div style="font-weight:900;">Mohammed Haitham Awad</div>
+                  <div class="app-muted">17003920 — T17</div>
+                </div>
+              </div>
+              <div class="app-kpi" style="margin-bottom:10px;">
+                <div>
+                  <div style="font-weight:900;">Adham Sherif</div>
+                  <div class="app-muted">17001397 — T14</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="app-kpi" style="margin-bottom:10px;">
+                <div>
+                  <div style="font-weight:900;">Ahmed Ibrahim</div>
+                  <div class="app-muted">13007292 — T5</div>
+                </div>
+              </div>
+              <div class="app-kpi" style="margin-bottom:10px;">
+                <div>
+                  <div style="font-weight:900;">Sobhy wael</div>
+                  <div class="app-muted">17001974 — T15</div>
+                </div>
+              </div>
+              <div class="app-kpi">
+                <div>
+                  <div style="font-weight:900;">Mahmoud Ehab</div>
+                  <div class="app-muted">17003955 — T17</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
